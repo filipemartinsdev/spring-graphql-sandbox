@@ -1,6 +1,7 @@
 type Query {
   authors: [Author]
   authorById(id: ID!): Author
+  pagedAuthors(first: Int, after: String): AuthorConnection!
   books: [Book]
   bookById(id: ID!): Book
 }
@@ -19,6 +20,23 @@ type Book {
   author: Author
 }
 
+type AuthorConnection {
+  edges: [AuthorEdge!]!
+  pageInfo: PageInfo!
+}
+
+type AuthorEdge {
+  cursor: String!
+  node: Author!
+}
+
+type PageInfo {
+  hasPreviousPage: Boolean!
+  hasNextPage: Boolean!
+  startCursor: String
+  endCursor: String
+}
+
 type Mutation {
   createBook(book: BookInput!): Book
 } 
@@ -27,4 +45,13 @@ input BookInput {
   title: String!
   description: String
   authorId: ID!
+}
+
+type PagedAuthors {
+  page: Int
+  size: Int
+  isLast: Boolean
+  totalElements: Int
+  totalPages: Int
+  content: [Author]
 }
