@@ -9,10 +9,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.graphql.client.HttpGraphQlClient;
 import org.springframework.web.reactive.function.client.WebClient;
 
-import spring.graphql.sandbox.domain.Author;
 import spring.graphql.sandbox.domain.Book;
-import spring.graphql.sandbox.infra.persistence.AuthorRepository;
-import spring.graphql.sandbox.infra.persistence.BookRepository;
 
 @SpringBootApplication
 public class SandboxApplication {
