@@ -1,7 +1,5 @@
 package spring.graphql.sandbox.domain;
 
-import java.util.UUID;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
