@@ -10,8 +10,6 @@ import org.springframework.stereotype.Controller;
 import spring.graphql.sandbox.application.service.BookService;
 import spring.graphql.sandbox.application.service.BookService.BookInput;
 import spring.graphql.sandbox.domain.Book;
-import spring.graphql.sandbox.infra.persistence.AuthorRepository;
-import spring.graphql.sandbox.infra.persistence.BookRepository;
 
 @Controller
 public class BookController {
