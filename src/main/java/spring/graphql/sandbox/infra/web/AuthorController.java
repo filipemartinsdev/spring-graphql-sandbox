@@ -7,6 +7,7 @@ import org.springframework.data.domain.Limit;
 import org.springframework.data.domain.ScrollPosition;
 import org.springframework.data.domain.Window;
 import org.springframework.graphql.data.method.annotation.Argument;
+import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.graphql.data.query.ScrollSubrange;
 import org.springframework.stereotype.Controller;
@@ -41,4 +42,14 @@ public class AuthorController {
 
     return authorService.getAll(position, limit);
   }
+
+  @MutationMapping
+  public Author createAuthor(@Argument AuthorInput author){
+    return authorService.create(author);
+  }
+
+  public static record AuthorInput (
+    String name,
+    String bio
+  ){}
 }

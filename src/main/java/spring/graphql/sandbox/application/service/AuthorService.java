@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import spring.graphql.sandbox.domain.Author;
 import spring.graphql.sandbox.infra.persistence.AuthorRepository;
+import spring.graphql.sandbox.infra.web.AuthorController.AuthorInput;
 
 @Service
 public class AuthorService {
@@ -29,5 +30,12 @@ public class AuthorService {
 
     public Optional<Author> getById(Long id) {
         return authorRepository.findById(id);
+    }
+
+    public Author create(AuthorInput author) {
+        Author newAuthor = new Author();
+        newAuthor.setName(author.name());
+        newAuthor.setBio(author.bio());
+        return authorRepository.save(newAuthor);
     }
 }

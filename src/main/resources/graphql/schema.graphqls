@@ -39,6 +39,7 @@ type PageInfo {
 
 type Mutation {
   createBook(book: BookInput!): Book
+  createAuthor(author: AuthorInput!): Author
 } 
 
 input BookInput {
@@ -47,11 +48,7 @@ input BookInput {
   authorId: ID!
 }
 
-type PagedAuthors {
-  page: Int
-  size: Int
-  isLast: Boolean
-  totalElements: Int
-  totalPages: Int
-  content: [Author]
+input AuthorInput {
+  name: String!
+  bio: String
 }
